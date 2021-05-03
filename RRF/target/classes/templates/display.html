@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Price</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Register</a>
+		<form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">logout</button>
+  </form>
+</nav>
+
+
+
+ <div class="container">
+    <div align="center" class="bo">
+        <h1> New profile</h1>
+        <br />
+        <form action="#" th:action="@{/cal}" method="post">
+ 
+            <table border="0" cellpadding="10" class="table table-hover">
+                 <thead>
+                  <tr>
+                    <th>PROFILE ID:</th>
+                    <th>PS NUMBER:</th>
+                    </tr>
+                  </thead>   
+                  <tbody>
+           <tr th:each="booking : ${listBooking}">
+                <td th:text="${booking.profile_Id}">PROFILE ID</td>
+                <td th:text="${booking.ps_id}">PS NUMBER</td> 
+              </tr>
+              </tbody> 
+            </table>
+        </form>
+    </div>
+     </div> 
+
+
+
+
+</body>
+</html>
+ 

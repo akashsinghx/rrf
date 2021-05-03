@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Resource Manager</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<style>
+       body{
+        background-image: url("C:/Users/Training/Desktop/te.jpg");
+  background-color: #cccccc;
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+       }
+       .he{
+       color: grey;
+        font-family:Monotype Corsiva;
+        font-size: 45px;
+        height: auto;
+        margin: 5px;
+        padding: 5px;
+        box-shadow: 5px 10px 5px #888888;
+       }
+        .bo {
+       
+        font-size: 15px;
+        height: auto;
+        margin: 10px;
+        padding: 20px;
+        box-shadow: 5px 10px 5px #888888;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">portal</a>
+  <a class="navbar-brand" href="/new2">CREATE NEW RRF</a>
+		<form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">logout</button>
+  </form>
+</nav>
+<div class="container">
+<div align="center">
+    <h1 class="he">RRF</h1>
+    <!-- <a href="/new2">Create New Booking</a> -->
+    <div class="bo">
+    <table border="1" cellpadding="10" class="table table-hover">
+        <thead>
+            <tr>
+               
+                <th>ID</th>
+                <!--<th>PS NUMBER</th>
+                <th>EMAIL ID</th>-->
+                <th>NAME</th>
+                <th>EXPERIENCE</th>
+                <th>SKILLS</th>
+                <th>Actions</th>
+                 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="booking : ${listBooking}">
+                <td th:text="${booking.profile_Id}"> ID</td>
+               <!-- <td th:text="${booking.ps_id}">PS NUMBER</td>
+                <td th:text="${booking.email_id}">EMAIL ID</td>-->
+                <td th:text="${booking.name}">NAME</td>
+                <td th:text="${booking.exp}">EXPERIENCE</td>
+                <td th:text="${booking.Skills}">SKILLS</td>
+                <td>
+                    <a th:href="@{'/edit2/' + ${booking.profile_Id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete2/' + ${booking.profile_Id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
+</div>
+</div> 
+</body>
+</html>

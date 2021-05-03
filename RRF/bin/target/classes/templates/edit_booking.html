@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>REGISTER</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">REGISTER</a>
+		<form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">logout</button>
+  </form>
+</nav>
+    <div align="center">
+        <h1>EDIT RRF</h1>
+        <br />
+        <form action="#" th:action="@{/save2}" th:object="${booking}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                 
+                 <tr>
+                    <td>ID :</td>
+                    <td><input type="text" th:field="*{profile_Id}" readonly="readonly" /></td>
+                </tr>
+                 
+              <!--  <tr>
+                    <td>PS NUMBER:</td>
+                    <td><input type="text" th:field="*{ps_id}" /></td>
+                </tr>
+                <tr>
+                    <td>EMAIL ID:</td>
+                    <td><input type="text" th:field="*{email_id}" /></td>
+                </tr>-->
+                <tr>
+                    <td>NAME :</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td>EXPERIENCE :</td>
+                    <td><input type="text" th:field="*{exp}" /></td>
+                </tr> 
+                <!-- <tr>
+                    <td>STATUS</td>
+                    <td><input type="text" th:field="*{status}" /></td>
+                </tr> -->   
+               <!-- <tr>
+                <td><label for="status">STATUS:</label></td>
+  <td><select th:field="*{status}">
+    <option value="Confirmed">Confirmed</option>
+  
+  </select></td>
+           </tr>                             -->
+           <tr>
+           	<td>
+           	<label for="status">SKILLS:</label></td>
+           		
+<td><input type="checkbox" th:field="*{Skills}" name="C" value="C">
+<label for="vehicle1"> C </label>
+<input type="checkbox" th:field="*{Skills}" name="C++" value="C++">
+<label for="vehicle1"> C++ </label>
+<input type="checkbox" th:field="*{Skills}" name="JAVA" value="JAVA">
+<label for="vehicle1"> JAVA </label></td>
+           	</td>
+           </tr>    
+                         
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
